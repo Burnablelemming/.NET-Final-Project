@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <Label Content="New THING"/>
-        <Label Content="ANother New THIng"/>
+        <Label Content="New Thing"/>
+        <Label Content="Another New Thing"/>
+        <Label Content="A Secret Third Thing"/>
     </StackPanel>
 </Window>
