@@ -10,5 +10,16 @@
         <Label Content="New Thing"/>
         <Label Content="Another New Thing"/>
         <Label Content="A Secret Third Thing"/>
+        <ListBox ItemsSource="{Binding Expenses}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Amount}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="THis is asdnjihbrgepw" Click="Button_Click"/>
     </StackPanel>
 </Window>
