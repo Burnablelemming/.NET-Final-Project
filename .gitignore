@@ -6,6 +6,9 @@ obj/
 TestResults/
 out/
 
+# .VS
+.vs/
+
 # User-specific files
 *.user
 *.userosscache
