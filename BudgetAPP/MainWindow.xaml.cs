@@ -16,6 +16,7 @@ namespace BudgetApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Testing changes
         public MainWindow()
         {
             InitializeComponent();

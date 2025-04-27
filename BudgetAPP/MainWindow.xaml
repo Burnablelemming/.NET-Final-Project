@@ -8,5 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <Label Content="New THING"/>
+        <Label Content="ANother New THIng"/>
     </StackPanel>
 </Window>
