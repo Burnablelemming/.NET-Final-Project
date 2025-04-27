@@ -1,17 +1,96 @@
 # Build results
+# Build results
 bin/
 obj/
+[Ll]og/
+TestResults/
+out/
 
-# Visual Studio files
-.vs/
+# User-specific files
 *.user
+*.userosscache
 *.suo
+*.sln.docstates
+*.userprefs
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Visual Studio for Mac
+.vscode/
+.idea/
+*.pidb
+*.sln.cache
+*.dotCover
+*.ncrunch*
+*.orig
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# NuGet
+*.nupkg
+*.snupkg
+# The packages folder can be ignored because of PackageReference or centralized restore
+**/packages/*
+!**/packages/build/
+!**/packages/buildTransitive/
+!**/packages/repositories.config
+.nuget/
+*.dgspec.json
+*.nuget.props
+*.nuget.targets
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*.dbmdl
+*.bak
+*.backup
+*.BLOB
+*.cache
+*.ide
+
+# Other build systems
+build/
+Build/
+bld/
+
+# Publish artifacts
+*.publish.xml
+*.publishproj
+
+# Azure Functions artifacts
+local.settings.json
+
+# Entity Framework Core tools
+migrations/
 
 # Others
-*.dbmdl
-*.cache
-*.log
-
-# Optional: ignore user-specific settings
-*.userosscache
-*.sln.docstates
+*.vspscc
+*.vssscc
