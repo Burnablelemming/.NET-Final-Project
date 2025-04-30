@@ -11,10 +11,10 @@ namespace BudgetApp.Models
         public string Name { get; set; }
         public double Amount { get; set; }
 
-        public Expense()
+        public Expense(string name, double amount)
         {
-            Name = string.Empty;
-            Amount = 0;
+            Name = name;
+            Amount = amount;
         }
     }
 }

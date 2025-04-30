@@ -21,8 +21,6 @@ namespace BudgetApp
         public MainWindow()
         {
             InitializeComponent();
-            expenseVM = new ExpenseViewModel();
-            DataContext = expenseVM;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

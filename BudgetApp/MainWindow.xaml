@@ -4,22 +4,56 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BudgetApp"
+        xmlns:vm="clr-namespace:BudgetApp.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Label Content="New Thing"/>
-        <Label Content="Another New Thing"/>
-        <Label Content="A Secret Third Thing"/>
-        <ListBox ItemsSource="{Binding Expenses}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="5">
-                        <TextBlock Text="{Binding Name}"/>
-                        <TextBlock Text="{Binding Amount}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Content="THis is asdnjihbrgepw" Click="Button_Click"/>
+    
+    <Window.Resources>
+        <vm:ExpenseViewModel x:Key="ExpenseViewModel"/>
+        <vm:IncomeViewModel x:Key="IncomeViewModel"/>
+    </Window.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Expenses" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center"/>
+
+            <ListBox DataContext="{StaticResource ExpenseViewModel}" d:DataContext="{d:DesignInstance vm:ExpenseViewModel, IsDesignTimeCreatable=True}" ItemsSource="{Binding Expenses}"  Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel Margin="5">
+                            <TextBlock Text="{Binding Amount}" DockPanel.Dock="Right" />
+                            <TextBlock Text="{Binding Name}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Incomes" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center"/>
+
+            <ListBox DataContext="{StaticResource IncomeViewModel}" d:DataContext="{d:DesignInstance vm:IncomeViewModel, IsDesignTimeCreatable=True}" ItemsSource="{Binding Incomes}"  Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel Margin="5">
+                            <TextBlock Text="{Binding Amount}" DockPanel.Dock="Right" />
+                            <TextBlock Text="{Binding Name}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
+
+        <Button Content="Click ME!!!"/>
     </StackPanel>
+    
 </Window>

@@ -12,10 +12,11 @@ namespace BudgetApp.Models
         public string Name { get; set; }
         public double Amount { get; set; }
         // Contributor -> prop income, Income income;
-        public Income() 
+
+        public Income(string name, double amount) 
         {
-            Name = string.Empty;
-            Amount = 0;
+            Name = name;
+            Amount = amount;
         }
     }
 }

@@ -10,43 +10,24 @@ using System.Threading.Tasks;
 
 namespace BudgetApp.ViewModels
 {
-    internal class ExpenseViewModel : INotifyPropertyChanged
+    internal class ExpenseViewModel
     {
-        private ObservableCollection<Expense> _expenses;
-        public ObservableCollection<Expense> Expenses
-        {
-            get
-            {
-                Debug.WriteLine($"Expenses - get");
-                return _expenses;
-            }
-            set
-            {
-                if (_expenses != value)
-                {
-                    _expenses = value;
-                    Debug.WriteLine($"Expenses - set to {value}");
-                    OnPropertyChanged(nameof(Expenses));
-                }
-            }
-        }
+        // Member Properties
+        private ObservableCollection<Expense> expenses;
+        public ReadOnlyObservableCollection<Expense> Expenses { get; }
 
+        // Constructor
         public ExpenseViewModel()
         {
-            Expenses = new ObservableCollection<Expense>
-            {
-                new Expense { Name = "Coffee", Amount = 4.99 },
-                new Expense { Name = "Groceries", Amount = 76.43 },
-                new Expense { Name = "Internet Bill", Amount = 59.99 }
-            };
+            // TODO - Remove this for production
+            // Fill the private array with default values
+            expenses = [new Expense("Oneish", 99.0), new Expense("Two", 102.23), new Expense("Three", 146.22)];
+
+            // This is a wrapper not a new, independant collection. It responds to write-updates.
+            Expenses = new ReadOnlyObservableCollection<Expense>(expenses);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            Debug.WriteLine($"OnPropertyChanged {propertyName}");
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public void AddExpense(Expense expense) => expenses.Add(expense);
+        public void RemoveExpense(Expense expense) => expenses.Remove(expense);
     }
 }
