@@ -12,7 +12,7 @@ using System.Windows.Shapes;
 using System.Xml.Serialization;
 using BudgetApp.ViewModels;
 
-namespace BudgetApp
+namespace BudgetApp.Views
 {
     public partial class MainWindow : Window
     {
