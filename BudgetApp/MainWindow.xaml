@@ -6,54 +6,68 @@
         xmlns:local="clr-namespace:BudgetApp"
         xmlns:vm="clr-namespace:BudgetApp.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
-    <Window.Resources>
-        <vm:ExpenseViewModel x:Key="ExpenseViewModel"/>
-        <vm:IncomeViewModel x:Key="IncomeViewModel"/>
-    </Window.Resources>
+        Title="MainWindow" Height="588" Width="1020">
 
-    <StackPanel Orientation="Vertical">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+    <Grid Margin="0,0,0,-16">
+        
+        <!-- Contributors UI Elements -->
+        <Label Content="Contributors" HorizontalAlignment="Left" Margin="34,22,0,0" VerticalAlignment="Top"/>
+        <ListBox Name="ContributorsListBox" HorizontalAlignment="Left" Height="103" Margin="34,47,0,0" VerticalAlignment="Top" Width="282">
+           
+        </ListBox>
+        <Button Name="AddContributorButton" Content="Add Contributor" HorizontalAlignment="Left" Margin="34,172,0,0" VerticalAlignment="Top" Width="117" Height="25"/>
+        <Button x:Name="RemoveContributorButton" Content="Remove Contributor" HorizontalAlignment="Left" Margin="199,172,0,0" VerticalAlignment="Top" Width="117" Height="25"/>
+        <!-- ************************** -->
+        
+        <!-- Expenses UI Elements -->
+        <Label Content="Expenses" HorizontalAlignment="Left" Margin="367,22,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="ExpensesListBox" HorizontalAlignment="Left" Height="102" Margin="368,48,0,0" VerticalAlignment="Top" Width="250">
+            
+        </ListBox>
+        <Button x:Name="AddExpenseButton" HorizontalAlignment="Left" Margin="367,171,0,0" VerticalAlignment="Top" Width="99" Height="26" Click="AddStudentButton_Click" Content="Add Expense"/>
+        <Button x:Name="RemoveExpenseButton" HorizontalAlignment="Left" Margin="519,171,0,0" VerticalAlignment="Top" Width="99" Height="26" Click="AddStudentButton_Click" Content="Remove Expense"/>
+        <!-- ************************** -->
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <!-- Income UI Elements -->
+        <Label Content="Income" HorizontalAlignment="Left" Margin="34,218,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="IncomeListBox" HorizontalAlignment="Left" Height="103" Margin="34,244,0,0" VerticalAlignment="Top" Width="282">
 
-            <Label Content="Expenses" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center"/>
+        </ListBox>
+        <Button x:Name="AddIncomeButton" HorizontalAlignment="Left" Margin="34,362,0,0" VerticalAlignment="Top" Width="117" Height="26" Click="AddStudentButton_Click" Content="Add Income"/>
+        <Button x:Name="RemoveIncomeButton" HorizontalAlignment="Left" Margin="199,362,0,0" VerticalAlignment="Top" Width="117" Height="26" Click="AddStudentButton_Click" Content="Remove Income"/>
+        <!-- ************************** -->
 
-            <ListBox DataContext="{StaticResource ExpenseViewModel}" d:DataContext="{d:DesignInstance vm:ExpenseViewModel, IsDesignTimeCreatable=True}" ItemsSource="{Binding Expenses}"  Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel Margin="5">
-                            <TextBlock Text="{Binding Amount}" DockPanel.Dock="Right" />
-                            <TextBlock Text="{Binding Name}" />
-                        </DockPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+        <!-- Accounts UI Elements -->
+        <Label Content="Accounts" HorizontalAlignment="Left" Margin="368,219,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="AccountsListBox" HorizontalAlignment="Left" Height="103" Margin="367,244,0,0" VerticalAlignment="Top" Width="251">
 
-            <Label Content="Incomes" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center"/>
+        </ListBox>
+        <Button x:Name="AddAccountButton" HorizontalAlignment="Left" Margin="367,362,0,0" VerticalAlignment="Top" Width="99" Height="26" Click="AddStudentButton_Click" Content="Add Account"/>
+        <Button x:Name="RemoveAccountButton" HorizontalAlignment="Left" Margin="519,362,0,0" VerticalAlignment="Top" Width="99" Height="26" Click="AddStudentButton_Click" Content="Remove Account"/>
+        <!-- ************************** -->
 
-            <ListBox DataContext="{StaticResource IncomeViewModel}" d:DataContext="{d:DesignInstance vm:IncomeViewModel, IsDesignTimeCreatable=True}" ItemsSource="{Binding Incomes}"  Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel Margin="5">
-                            <TextBlock Text="{Binding Amount}" DockPanel.Dock="Right" />
-                            <TextBlock Text="{Binding Name}" />
-                        </DockPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+        <!-- Totals UI elements -->
+        <Label Content="Totals" HorizontalAlignment="Left" Margin="737,48,0,0" VerticalAlignment="Top"/>
 
-        </Grid>
+        <Label Content="Total Income: " HorizontalAlignment="Left" Margin="655,86,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total Expenses: " HorizontalAlignment="Left" Margin="655,117,0,0" VerticalAlignment="Top"/>
+        <Label Content="Account Total: " HorizontalAlignment="Left" Margin="655,148,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Click ME!!!"/>
-    </StackPanel>
-    
+        <TextBox x:Name="TotalIncomeTextBox"  HorizontalAlignment="Left" Height="23" Margin="760,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="TotalExpensesTextBox"  HorizontalAlignment="Left" Height="23" Margin="760,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="AccountTotalTextBox"  HorizontalAlignment="Left" Height="23" Margin="760,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <!-- ************************** -->
+
+        <!-- Bills Contributions -->
+        <Label Content="Bills Contributions" HorizontalAlignment="Left" Margin="709,206,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="BillsContributionListBox" HorizontalAlignment="Left" Height="44" Margin="667,232,0,0" VerticalAlignment="Top" Width="191" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <!-- ************************** -->
+
+        <!-- Load and Save Buttons-->
+        <Button x:Name="LoadBudgetButton" HorizontalAlignment="Left" Margin="68,461,0,0" VerticalAlignment="Top" Width="214" Height="38" Click="AddStudentButton_Click" Content="Load Budget"/>
+        <Button x:Name="SaveBudgetButton" HorizontalAlignment="Left" Margin="697,461,0,0" VerticalAlignment="Top" Width="214" Height="38" Click="AddStudentButton_Click" Content="Save Budget"/>
+        <!-- ************************** -->
+        
+    </Grid>
+
 </Window>

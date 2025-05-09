@@ -16,16 +16,14 @@ namespace BudgetApp
 {
     public partial class MainWindow : Window
     {
-        private ExpenseViewModel expenseVM;
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddStudentButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button Click");
+
         }
     }
 }
