@@ -23,5 +23,15 @@ namespace BudgetApp.Views
         {
             InitializeComponent();
         }
+
+        private void AddAccountDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelAccountDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
