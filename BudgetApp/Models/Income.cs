@@ -9,9 +9,34 @@ namespace BudgetApp.Models
 {
     internal abstract class Income
     {
-        public string Name { get; set; }
-        public double Amount { get; set; }
-        // Contributor -> prop income, Income income;
+        private string _name;
+        private double _amount;
+
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Name cannot be empty or whitespace.");
+                }
+                _name = value;
+            }
+        }
+
+        public double Amount
+        {
+            get => _amount;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Amount cannot be negative.");
+                }
+                _amount = value;
+            }
+        }
 
         public Income(string name, double amount) 
         {
