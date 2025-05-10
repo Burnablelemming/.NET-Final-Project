@@ -16,15 +16,21 @@ namespace BudgetApp.Views
 {
     public partial class MainWindow : Window
     {
+        private MainWindowController _controller;
         public MainWindow()
         {
             InitializeComponent();
+            _controller = new MainWindowController(this);
         }
 
         private void AddContributor_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new AddContributorDialog();
-            dialog.ShowDialog(); 
+            _controller.AddContributor();
+        }
+
+        public ListBox GetContributorListBox()
+        {
+            return this.ContributorsListBox;
         }
     }
 }
