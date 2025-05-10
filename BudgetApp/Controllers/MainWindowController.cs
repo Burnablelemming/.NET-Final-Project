@@ -18,7 +18,7 @@ namespace BudgetApp.Controllers
         {
             _view = view;
 
-            _contributorController = new ContributorController(_view.GetContributorListBox());
+            _contributorController = new ContributorController(_view.ContributorsListBox);
             _expensesController = new ExpensesController();
             _accountController = new AccountController();
 
