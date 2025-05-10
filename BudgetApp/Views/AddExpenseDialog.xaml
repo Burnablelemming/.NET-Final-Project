@@ -12,11 +12,17 @@
         <Label Content="Add Expense" HorizontalAlignment="Center" Height="27" Margin="0,26,0,0" VerticalAlignment="Top" Width="90" />
         <Label Content="Enter Expense Name: " HorizontalAlignment="Left" Height="27" Margin="10,74,0,0" VerticalAlignment="Top" Width="131" />
         <Label Content="Enter Expense Amount: " HorizontalAlignment="Left" Height="27" Margin="13,115,0,0" VerticalAlignment="Top" Width="146" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="246,74,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="152"/>
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="246,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="152"/>
+        <TextBox x:Name="ExpenseNameTextBox" HorizontalAlignment="Left" Height="27" Margin="246,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152"/>
+        <TextBox x:Name="ExpenseAmountTextBox" HorizontalAlignment="Left" Height="27" Margin="246,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152"/>
         <Label Content="Choose Expense Type: " HorizontalAlignment="Left" Height="27" Margin="13,158,0,0" VerticalAlignment="Top" Width="146" />
+        <ComboBox x:Name="ExpenseTypeComboBox" HorizontalAlignment="Left" Height="27" Margin="246,158,0,0" VerticalAlignment="Top" Width="152">
+            <ComboBoxItem IsSelected="True" Content="Loan"/>
+            <ComboBoxItem Content="Groceries"/>
+            <ComboBoxItem Content="Fast Food"/>
+            <ComboBoxItem Content="Insurance"/>
+            <ComboBoxItem Content="Other"/>
+        </ComboBox>
         <!-- Change this to a combo box -->
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="246,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="152"/>
 
     </Grid>
 </Window>
