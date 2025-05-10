@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace BudgetApp.Models
 {
-    internal class Income
+    internal abstract class Income
     {
         public string Name { get; set; }
         public double Amount { get; set; }
@@ -18,5 +18,7 @@ namespace BudgetApp.Models
             Name = name;
             Amount = amount;
         }
+
+        public abstract double CalculateMonthlyIncome();
     }
 }

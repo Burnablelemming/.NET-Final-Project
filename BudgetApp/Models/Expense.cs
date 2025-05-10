@@ -11,6 +11,15 @@ namespace BudgetApp.Models
         public string Name { get; set; }
         public double Amount { get; set; }
 
+        public enum ExpenseType 
+        { 
+            Loans,
+            Groceries,
+            Fast_Food,
+            Insurance,
+            Other
+        }
+
         public Expense(string name, double amount)
         {
             Name = name;
