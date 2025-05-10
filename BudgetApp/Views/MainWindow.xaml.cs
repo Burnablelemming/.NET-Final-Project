@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
-using BudgetApp.ViewModels;
+using BudgetApp.Controllers;
 
 namespace BudgetApp.Views
 {
@@ -21,9 +21,10 @@ namespace BudgetApp.Views
             InitializeComponent();
         }
 
-        private void AddStudentButton_Click(object sender, RoutedEventArgs e)
+        private void AddContributor_Click(object sender, RoutedEventArgs e)
         {
-
+            var dialog = new AddContributorDialog();
+            dialog.ShowDialog(); 
         }
     }
 }

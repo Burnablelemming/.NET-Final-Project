@@ -16,7 +16,7 @@
            
         </ListBox>
         
-        <Button Name="AddContributorButton" Content="Add Contributor" HorizontalAlignment="Left" Margin="34,172,0,0" VerticalAlignment="Top" Width="117" Height="25"/>
+        <Button x:Name="AddContributorButton" Content="Add Contributor" HorizontalAlignment="Left" Margin="34,172,0,0" VerticalAlignment="Top" Width="117" Height="25" Click="AddContributor_Click"/>
         <Button x:Name="RemoveContributorButton" Content="Remove Contributor" HorizontalAlignment="Left" Margin="199,172,0,0" VerticalAlignment="Top" Width="117" Height="25"/>
         <!-- ************************** -->
         
