@@ -18,11 +18,17 @@ namespace BudgetApp.Controllers
         {
             _view = view;
 
-            _contributorController = new ContributorController();
+            _contributorController = new ContributorController(_view.GetContributorListBox());
             _expensesController = new ExpensesController();
             _accountController = new AccountController();
 
         }
 
+        public void AddContributor()
+        {
+            var dialog = new AddContributorDialog();
+            dialog.ShowDialog();
+
+        }
     }
 }
