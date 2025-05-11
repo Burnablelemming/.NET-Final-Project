@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetApp.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,19 +20,30 @@ namespace BudgetApp.Views
     /// </summary>
     public partial class AddContributorDialog : Window
     {
+        private ContributorController _controller;
+        public bool IsValid = false;
         public AddContributorDialog()
         {
             InitializeComponent();
+            _controller = new ContributorController(this);
         }
 
         private void AddContributorDialogButton_Click(object sender, RoutedEventArgs e)
         {
-
+            // Check if all fields for contributor are valid
+            _controller.validateDialog();
         }
 
         private void CancelContributorDialogButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+            ClearAllTextFields();
+        }
 
+        private void ClearAllTextFields()
+        {
+            this.ContributorNameTextBox.Text = string.Empty;
+            this.ContributorPercentageContributionTextBox.Text = string.Empty;
         }
     }
 }

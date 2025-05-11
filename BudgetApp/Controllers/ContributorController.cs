@@ -6,31 +6,56 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace BudgetApp.Controllers
 {
     class ContributorController
     {
-        private ObservableCollection<Contributor> _contributors = new ObservableCollection<Contributor>();
-        private ListBox _contributorsListBox;
-        private AddContributorDialog _view = new AddContributorDialog();
+        //private ObservableCollection<Contributor> _contributors = new ObservableCollection<Contributor>();
+       // private ListBox _contributorsListBox;
+        private AddContributorDialog _view;
+        //private AddContributorDialog _view = new AddContributorDialog();
 
-        public ContributorController(ListBox contributorsList)
+        public ContributorController(AddContributorDialog view)
         {
-            _contributorsListBox = contributorsList;
-            _contributorsListBox.ItemsSource = _contributors;
+            _view = view;
         }
 
-        public void AddContributor() {
+        // Creates a Contributor based on the Dialog view added
+        public void validateDialog()
+        {
+            //Contributor c = new Contributor();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(_view.ContributorNameTextBox.Text))
+                {
+                    throw new ArgumentException("Name cannot be blank.");
+                }
+                double percentageContribution = double.Parse(_view.ContributorPercentageContributionTextBox.Text);
 
-            // if _view.IsValid()
-            Contributor c = new Contributor();
-            //c.name = _view.ContributorNameTextBox.Text;
-            //contributors.add(c);
-            // close dialog
+                if (percentageContribution <= 0 || percentageContribution > 100)
+                {
+                    throw new ArgumentException("Percentage must be between 1 - 100");
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Enter a valid percentage.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _view.IsValid = false;
+                return;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _view.IsValid = false;
+                return;
+            }
+
+            _view.IsValid = true;
+            _view.Close();
         }
-
 
     }
 }

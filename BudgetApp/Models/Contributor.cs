@@ -42,13 +42,17 @@ namespace BudgetApp.Models
 
         private ObservableCollection<Income> Income { get; set; }
 
-        public Contributor(string name) 
+        public Contributor(string name, double percentageContribution) 
         { 
             Name = name;
+            PercentageContribution = percentageContribution;
             Income = new ObservableCollection<Income>();
         }
 
-        public Contributor() { }
+        public Contributor() 
+        {
+            Income = new ObservableCollection<Income>();
+        }
 
     }
 }

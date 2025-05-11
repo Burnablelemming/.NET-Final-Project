@@ -12,7 +12,20 @@
         <!-- Contributors UI Elements -->
         <Label Content="Contributors" HorizontalAlignment="Left" Margin="34,22,0,0" VerticalAlignment="Top"/>
         <ListBox Name="ContributorsListBox" HorizontalAlignment="Left" Height="103" Margin="34,47,0,0" VerticalAlignment="Top" Width="282">
-
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}, {1}">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="PercentageContribution"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <Button x:Name="AddContributorButton" Content="Add Contributor" HorizontalAlignment="Left" Margin="34,172,0,0" VerticalAlignment="Top" Width="117" Height="25" Click="AddContributorButton_Click"/>
