@@ -38,7 +38,7 @@ namespace BudgetApp.Views
 
         private void AddExpenseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            _controller.AddExpense();
         }
 
         private void RemoveExpenseButton_Click(object sender, RoutedEventArgs e)

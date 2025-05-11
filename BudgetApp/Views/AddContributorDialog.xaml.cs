@@ -1,4 +1,5 @@
 ﻿using BudgetApp.Controllers;
+using BudgetApp.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace BudgetApp.Views
     /// <summary>
     /// Interaction logic for AddContributorDialog.xaml
     /// </summary>
-    public partial class AddContributorDialog : Window
+    public partial class AddContributorDialog : Window, IDialogValidator
     {
         private ContributorController _controller;
         public bool IsValid = false;
@@ -31,11 +32,16 @@ namespace BudgetApp.Views
         private void AddContributorDialogButton_Click(object sender, RoutedEventArgs e)
         {
             // Check if all fields for contributor are valid
-            _controller.validateDialog();
+            if (ValidateDialog())
+            {
+                this.DialogResult = true;
+                this.Close();
+            }
         }
 
         private void CancelContributorDialogButton_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = false;
             this.Close();
             ClearAllTextFields();
         }
@@ -44,6 +50,11 @@ namespace BudgetApp.Views
         {
             this.ContributorNameTextBox.Text = string.Empty;
             this.ContributorPercentageContributionTextBox.Text = string.Empty;
+        }
+
+        public bool ValidateDialog()
+        {
+            return _controller.ValidateDialog();
         }
     }
 }

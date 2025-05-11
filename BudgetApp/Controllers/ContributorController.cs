@@ -1,4 +1,5 @@
-﻿using BudgetApp.Models;
+﻿using BudgetApp.Interfaces;
+using BudgetApp.Models;
 using BudgetApp.Views;
 using System;
 using System.Collections.Generic;
@@ -11,22 +12,18 @@ using System.Windows.Controls;
 
 namespace BudgetApp.Controllers
 {
-    class ContributorController
+    class ContributorController : IDialogValidator
     {
-        //private ObservableCollection<Contributor> _contributors = new ObservableCollection<Contributor>();
-       // private ListBox _contributorsListBox;
         private AddContributorDialog _view;
-        //private AddContributorDialog _view = new AddContributorDialog();
-
+        
         public ContributorController(AddContributorDialog view)
         {
             _view = view;
         }
 
         // Creates a Contributor based on the Dialog view added
-        public void validateDialog()
+        public bool ValidateDialog()
         {
-            //Contributor c = new Contributor();
             try
             {
                 if (string.IsNullOrWhiteSpace(_view.ContributorNameTextBox.Text))
@@ -43,19 +40,14 @@ namespace BudgetApp.Controllers
             catch (FormatException ex)
             {
                 MessageBox.Show("Enter a valid percentage.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                _view.IsValid = false;
-                return;
+                return false;
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show($"{ex.Message}", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                _view.IsValid = false;
-                return;
+                return false;
             }
-
-            _view.IsValid = true;
-            _view.Close();
+            return true;
         }
-
     }
 }

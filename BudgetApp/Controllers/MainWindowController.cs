@@ -36,29 +36,25 @@ namespace BudgetApp.Controllers
         public void AddContributor()
         {
             var dialog = new AddContributorDialog();
-            //_contributorController = new ContributorController(dialog);
-            dialog.ShowDialog();
 
-            if (dialog.IsValid)
+            if (dialog.ShowDialog() == true)
             {
-                //dialog.Close();
-                try
-                {
-                    string name = dialog.ContributorNameTextBox.Text;
-                    double percentageContribution = double.Parse(dialog.ContributorPercentageContributionTextBox.Text) / 100;
-                    Debug.WriteLine($"{name}, {percentageContribution}");
-                    Contributor c = new Contributor(name, percentageContribution);
-                    _contributors.Add(c);
-                    dialog.Close();
-                }
-                catch (FormatException ex)
-                {
-                    Debug.WriteLine($"PercentageContribution : {dialog.ContributorPercentageContributionTextBox.Text}");
-                }
-                
+                string name = dialog.ContributorNameTextBox.Text;
+                double percentageContribution = double.Parse(dialog.ContributorPercentageContributionTextBox.Text);
+                //Debug.WriteLine($"{name}, {percentageContribution}");
+                Contributor c = new Contributor(name, percentageContribution);
+                _contributors.Add(c);        
             }
-            //_contributors.Add(_contributorController.CreateContributor());
+        }
 
+        public void AddExpense()
+        {
+            var dialog = new AddExpenseDialog();
+
+            if (dialog.ShowDialog() == true)
+            {
+                Debug.WriteLine("Dialog is valid");
+            }
         }
     }
 }
