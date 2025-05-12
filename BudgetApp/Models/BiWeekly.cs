@@ -11,6 +11,7 @@ namespace BudgetApp.Models
     {
         public BiWeekly(string name, double amount) : base(name, amount, IncomeType.BiWeekly)
         {
+
         }
 
         public override double CalculateMonthlyIncome()
