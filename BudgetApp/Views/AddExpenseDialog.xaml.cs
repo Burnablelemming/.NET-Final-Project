@@ -22,7 +22,6 @@ namespace BudgetApp.Views
     public partial class AddExpenseDialog : Window, IDialogValidator
     {
         private ExpensesController _controller;
-        public bool IsValid = false;
         public AddExpenseDialog()
         {
             InitializeComponent();
@@ -42,7 +41,14 @@ namespace BudgetApp.Views
         {
             this.DialogResult = false;
             this.Close();
-            //clear text fields
+            ClearDialog();
+        }
+
+        public void ClearDialog()
+        {
+            this.ExpenseNameTextBox.Text = string.Empty;
+            this.ExpenseAmountTextBox.Text = string.Empty;
+            this.ExpenseTypeComboBox.SelectedIndex = 0;
         }
 
         public bool ValidateDialog()

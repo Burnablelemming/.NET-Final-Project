@@ -48,7 +48,7 @@ namespace BudgetApp.Views
 
         private void AddIncomeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            _controller.AddIncome();
         }
 
         private void RemoveIncomeButton_Click(object sender, RoutedEventArgs e)

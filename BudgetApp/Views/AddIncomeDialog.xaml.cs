@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BudgetApp.Controllers;
+using BudgetApp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,21 +19,41 @@ namespace BudgetApp.Views
     /// <summary>
     /// Interaction logic for AddIncomeDialog.xaml
     /// </summary>
-    public partial class AddIncomeDialog : Window
+    public partial class AddIncomeDialog : Window, IDialogValidator
     {
+        private IncomeController _controller;
         public AddIncomeDialog()
         {
             InitializeComponent();
+            _controller = new IncomeController(this);
         }
 
         private void AddIncomeDialogButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ValidateDialog())
+            {
+                this.DialogResult = true;
+                this.Close();
+            }
         }
 
         private void CancelIncomeDialogButton_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = false;
+            this.Close();
+            ClearDialog();
+        }
 
+        public void ClearDialog()
+        {
+            this.IncomeNameTextBox.Text = string.Empty;
+            this.IncomeAmountTextBox.Text = string.Empty;
+            this.IncomeTypeComboBox.SelectedIndex = 0;
+        }
+        public bool ValidateDialog()
+        {
+            return _controller.ValidateDialog();
+            //throw new NotImplementedException();
         }
     }
 }

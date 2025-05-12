@@ -43,10 +43,10 @@ namespace BudgetApp.Views
         {
             this.DialogResult = false;
             this.Close();
-            ClearAllTextFields();
+            ClearDialog();
         }
 
-        private void ClearAllTextFields()
+        private void ClearDialog()
         {
             this.ContributorNameTextBox.Text = string.Empty;
             this.ContributorPercentageContributionTextBox.Text = string.Empty;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetApp.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +12,13 @@ namespace BudgetApp.Models
         public string Name { get; set; }
         public double Amount { get; set; }
 
-        public enum ExpenseType 
-        { 
-            Loans,
-            Groceries,
-            Fast_Food,
-            Insurance,
-            Other
-        }
+        public ExpenseType Type { get; set; }
 
-        public Expense(string name, double amount)
+        public Expense(string name, double amount, ExpenseType type)
         {
             Name = name;
             Amount = amount;
+            Type = type;
         }
     }
 }

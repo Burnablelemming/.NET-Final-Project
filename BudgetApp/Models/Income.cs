@@ -45,5 +45,10 @@ namespace BudgetApp.Models
         }
 
         public abstract double CalculateMonthlyIncome();
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Amount: {Amount}";
+        }
     }
 }

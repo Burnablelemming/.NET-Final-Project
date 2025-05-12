@@ -35,7 +35,21 @@
         <!-- Expenses UI Elements -->
         <Label Content="Expenses" HorizontalAlignment="Left" Margin="367,22,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="ExpensesListBox" HorizontalAlignment="Left" Height="102" Margin="368,48,0,0" VerticalAlignment="Top" Width="250">
-
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{2}, {0}, {1}">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="Amount"/>
+                                    <Binding Path="Type"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <Button x:Name="AddExpenseButton" HorizontalAlignment="Left" Margin="367,171,0,0" VerticalAlignment="Top" Width="99" Height="26" Content="Add Expense" Click="AddExpenseButton_Click"/>
@@ -45,7 +59,20 @@
         <!-- Income UI Elements -->
         <Label Content="Income" HorizontalAlignment="Left" Margin="34,218,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="IncomeListBox" HorizontalAlignment="Left" Height="103" Margin="34,244,0,0" VerticalAlignment="Top" Width="282">
-
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}, {1}">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="Amount"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <Button x:Name="AddIncomeButton" HorizontalAlignment="Left" Margin="34,362,0,0" VerticalAlignment="Top" Width="117" Height="26" Content="Add Income" Click="AddIncomeButton_Click"/>
