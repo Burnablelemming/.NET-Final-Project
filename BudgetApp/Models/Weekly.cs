@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetApp.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace BudgetApp.Models
 {
     class Weekly : Income
     {
-        public Weekly(string name, double amount) : base(name, amount)
+        public Weekly(string name, double amount) : base(name, amount, IncomeType.Weekly)
         {
-
+            
         }
 
         public override double CalculateMonthlyIncome()

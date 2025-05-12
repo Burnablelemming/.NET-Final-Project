@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetApp.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace BudgetApp.Models
     {
         private string _name;
         private double _amount;
+        private IncomeType _type;
 
         public string Name
         {
@@ -38,17 +40,27 @@ namespace BudgetApp.Models
             }
         }
 
-        public Income(string name, double amount) 
+        public IncomeType Type
+        {
+            get => _type;
+            private set
+            {
+                _type = value;
+            }
+        }
+
+        public Income(string name, double amount, IncomeType type) 
         {
             Name = name;
             Amount = amount;
+            Type = type;
         }
 
         public abstract double CalculateMonthlyIncome();
 
         public override string ToString()
         {
-            return $"Name: {Name}, Amount: {Amount}";
+            return $"Name: {Name}, Amount: {Amount}, Type: {Type}";
         }
     }
 }
