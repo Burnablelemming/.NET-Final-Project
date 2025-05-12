@@ -22,6 +22,7 @@ namespace BudgetApp.Controllers
 
         private ObservableCollection<Contributor> _contributors = new ObservableCollection<Contributor>();
         private ObservableCollection<Expense> _expenses = new ObservableCollection<Expense>();
+        private ObservableCollection<Income> _incomes = new ObservableCollection<Income>();
         //private ObservableCollection<Account> accounts;
 
         public MainWindowController(MainWindow view)
@@ -30,8 +31,7 @@ namespace BudgetApp.Controllers
 
             _view.ContributorsListBox.ItemsSource = _contributors;
             _view.ExpensesListBox.ItemsSource = _expenses;
-            var allIncomes = _contributors.SelectMany(c => c.Income).ToList();
-            _view.IncomeListBox.ItemsSource = allIncomes;
+            _view.IncomeListBox.ItemsSource = _incomes;
             //_contributorController = new ContributorController(_view.ContributorsListBox);
             //_expensesController = new ExpensesController();
             //_accountController = new AccountController();
@@ -120,7 +120,8 @@ namespace BudgetApp.Controllers
                     }
 
                     selectedContributor.Income.Add(income);
-                    PrintCollection(selectedContributor.Income, "Income List");
+                    _incomes.Add(income);
+                    //PrintCollection(selectedContributor.Income, "Income List");
 
                 }
 
