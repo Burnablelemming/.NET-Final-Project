@@ -40,7 +40,7 @@
                     <StackPanel>
                         <TextBlock>
                             <TextBlock.Text>
-                                <MultiBinding StringFormat="{}{2}, {0}, {1}">
+                                <MultiBinding StringFormat="{}{2}, {0}, {1:C}">
                                     <Binding Path="Name"/>
                                     <Binding Path="Amount"/>
                                     <Binding Path="Type"/>
@@ -64,9 +64,10 @@
                     <StackPanel>
                         <TextBlock>
                             <TextBlock.Text>
-                                <MultiBinding StringFormat="{}{0}, {1}">
+                                <MultiBinding StringFormat="{}{2}: {0}, {1:C}">
                                     <Binding Path="Name"/>
                                     <Binding Path="Amount"/>
+                                    <Binding Path="Type"/>
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>
@@ -82,7 +83,21 @@
         <!-- Accounts UI Elements -->
         <Label Content="Accounts" HorizontalAlignment="Left" Margin="368,219,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="AccountsListBox" HorizontalAlignment="Left" Height="103" Margin="367,244,0,0" VerticalAlignment="Top" Width="251">
-
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{2}: {0}, {1:C}">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="Amount"/>
+                                    <Binding Path="Type"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <Button x:Name="AddAccountButton" HorizontalAlignment="Left" Margin="367,362,0,0" VerticalAlignment="Top" Width="99" Height="26" Content="Add Account" Click="AddAccountButton_Click"/>
@@ -90,20 +105,35 @@
         <!-- ************************** -->
 
         <!-- Totals UI elements -->
-        <Label Content="Totals" HorizontalAlignment="Left" Margin="721,24,0,0" VerticalAlignment="Top"/>
+        <Label Content="Totals" HorizontalAlignment="Left" Margin="754,22,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="Total Income: " HorizontalAlignment="Left" Margin="639,62,0,0" VerticalAlignment="Top"/>
-        <Label Content="Total Expenses: " HorizontalAlignment="Left" Margin="639,93,0,0" VerticalAlignment="Top"/>
-        <Label Content="Account Total: " HorizontalAlignment="Left" Margin="639,124,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total Monthly Income: " HorizontalAlignment="Left" Margin="639,62,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total Monthly Expenses: " HorizontalAlignment="Left" Margin="639,93,0,0" VerticalAlignment="Top"/>
+        <Label Content="Accounts Total: " HorizontalAlignment="Left" Margin="639,124,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="TotalIncomeTextBox"  HorizontalAlignment="Left" Height="23" Margin="744,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <TextBox x:Name="TotalExpensesTextBox"  HorizontalAlignment="Left" Height="23" Margin="744,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <TextBox x:Name="AccountTotalTextBox"  HorizontalAlignment="Left" Height="23" Margin="744,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="TotalIncomeTextBox"  HorizontalAlignment="Left" Height="23" Margin="791,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="TotalExpensesTextBox"  HorizontalAlignment="Left" Height="23" Margin="791,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="AccountTotalTextBox"  HorizontalAlignment="Left" Height="23" Margin="791,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <!-- ************************** -->
 
         <!-- Bills Contributions -->
         <Label Content="Bills Contributions" HorizontalAlignment="Left" Margin="688,218,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="BillsContributionListBox" HorizontalAlignment="Left" Height="44" Margin="646,244,0,0" VerticalAlignment="Top" Width="191" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox x:Name="BillsContributionListBox" HorizontalAlignment="Left" Height="44" Margin="646,244,0,0" VerticalAlignment="Top" Width="191">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}, {1:C}">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="TotalContribution"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <!-- ************************** -->
 
         <!-- Load and Save Buttons-->

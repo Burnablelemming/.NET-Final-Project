@@ -12,8 +12,12 @@ using System.Windows.Controls;
 
 namespace BudgetApp.Controllers
 {
+    /// <summary>
+    /// Controller for validating inputs in the Add Contributor dialog.
+    /// </summary>
     class ContributorController : IDialogValidator
     {
+        // Give controller access to the dialog
         private AddContributorDialog _view;
         
         public ContributorController(AddContributorDialog view)
@@ -21,7 +25,7 @@ namespace BudgetApp.Controllers
             _view = view;
         }
 
-        // Creates a Contributor based on the Dialog view added
+        /// <inheritdoc />
         public bool ValidateDialog()
         {
             try

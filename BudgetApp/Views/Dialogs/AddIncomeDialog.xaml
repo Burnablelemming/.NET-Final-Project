@@ -10,11 +10,11 @@
         <Button x:Name="AddIncomeDialogButton" Content="Add" HorizontalAlignment="Left" Margin="13,229,0,0" VerticalAlignment="Top" Width="117" Height="25" Click="AddIncomeDialogButton_Click"/>
         <Button x:Name="CancelIncomeDialogButton" Content="Cancel" HorizontalAlignment="Left" Margin="281,229,0,0" VerticalAlignment="Top" Width="117" Height="25" Click="CancelIncomeDialogButton_Click"/>
         <Label Content="Add Income" HorizontalAlignment="Center" Height="27" Margin="0,27,0,0" VerticalAlignment="Top" Width="98" />
-        <Label Content="Enter Income Name: " HorizontalAlignment="Left" Height="28" Margin="7,83,0,0" VerticalAlignment="Top" Width="131" />
-        <Label Content="Enter Income Amount: " HorizontalAlignment="Left" Height="27" Margin="10,122,0,0" VerticalAlignment="Top" Width="128" />
+        <Label Content="Enter Income Name: " HorizontalAlignment="Left" Height="28" Margin="13,83,0,0" VerticalAlignment="Top" Width="131" />
+        <Label Content="Enter Income Amount: " HorizontalAlignment="Left" Height="27" Margin="13,122,0,0" VerticalAlignment="Top" Width="128" />
         <TextBox x:Name="IncomeNameTextBox" HorizontalAlignment="Left" Height="27" Margin="246,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152"/>
         <TextBox x:Name="IncomeAmountTextBox" HorizontalAlignment="Left" Height="27" Margin="246,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152"/>
-        <Label Content="Enter Income Type: " HorizontalAlignment="Left" Height="27" Margin="13,163,0,0" VerticalAlignment="Top" Width="128" />
+        <Label Content="Choose Income Type: " HorizontalAlignment="Left" Height="27" Margin="13,163,0,0" VerticalAlignment="Top" Width="128" />
         <ComboBox x:Name="IncomeTypeComboBox" HorizontalAlignment="Left" Height="27" Margin="246,163,0,0" VerticalAlignment="Top" Width="152">
             <ComboBoxItem IsSelected="True" Content="Weekly"/>
             <ComboBoxItem Content="Bi-Weekly"/>

@@ -10,9 +10,12 @@ using System.Windows;
 
 namespace BudgetApp.Controllers
 {
-    // Validates inputs and returns true or false 
+    /// <summary>
+    /// Controller for validating inputs in the Add Expense dialog.
+    /// </summary>
     class ExpensesController : IDialogValidator
     {
+        // Give controller access to the dialog
         private AddExpenseDialog _view;
 
         public ExpensesController(AddExpenseDialog view)
@@ -20,6 +23,7 @@ namespace BudgetApp.Controllers
             _view = view;
         }
 
+        /// <inheritdoc />
         public bool ValidateDialog()
         {
             try

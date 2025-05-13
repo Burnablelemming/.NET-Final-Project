@@ -10,8 +10,12 @@ using System.Windows;
 
 namespace BudgetApp.Controllers
 {
+    /// <summary>
+    /// Controller for validating inputs in the Add Income dialog.
+    /// </summary>
     internal class IncomeController : IDialogValidator
     {
+        // Give the controller access to the dialog
         private AddIncomeDialog _view;
 
         public IncomeController(AddIncomeDialog view)
@@ -19,6 +23,7 @@ namespace BudgetApp.Controllers
             _view = view;
         }
 
+        /// <inheritdoc />
         public bool ValidateDialog()
         {
             try

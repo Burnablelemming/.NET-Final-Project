@@ -5,15 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BudgetApp.Models
+namespace BudgetApp.Models.Incomes
 {
-    class Monthly : Income
+    /// <inheritdoc />
+    class MonthlyIncome : Income
     {
-        public Monthly(string name, double amount) : base(name, amount, IncomeType.Monthly)
+        /// <inheritdoc />
+        public MonthlyIncome(string name, double amount) : base(name, amount, IncomeType.Monthly)
         {
 
         }
 
+        /// <inheritdoc />
         public override double CalculateMonthlyIncome()
         {
             return Amount;
